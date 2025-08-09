@@ -45,6 +45,34 @@ app.use(
 
 app.use(cookieParser());
 app.use(express.json());
+
+// Root route handler
+app.get("/", (req, res) => {
+  res.json({
+    message: "FullStack Ecommerce Backend API is running successfully! 🎉",
+    status: "active",
+    endpoints: {
+      auth: "/api/auth",
+      admin: {
+        products: "/api/admin/products",
+        orders: "/api/admin/orders"
+      },
+      shop: {
+        products: "/api/shop/products",
+        cart: "/api/shop/cart",
+        orders: "/api/shop/order",
+        addresses: "/api/shop/address",
+        search: "/api/shop/search",
+        reviews: "/api/shop/review"
+      },
+      common: {
+        features: "/api/common/feature"
+      }
+    },
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/admin/products", adminProductsRouter);
 app.use("/api/admin/orders", adminOrderRouter);

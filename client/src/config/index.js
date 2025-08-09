@@ -1,3 +1,6 @@
+// API Configuration
+export const API_BASE_URL = import.meta.env.VITE_API_URL || "https://fullstack-ecommerce-backend-b4h2.onrender.com";
+
 export const registerFormControls = [
   {
     name: "userName",
